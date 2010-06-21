@@ -1,0 +1,34 @@
+_    ____ ____ ____ __ _   ____ _  _ ____ _  _ __ _ ____
+|___ [__] |--< |=== | \|   |___ |--| |=== |__| | \| |__,
+
+- June 20, 2010
+
+
+=== SIMPLE REGISTRATION === 
+
+An example of a three-step signup process using authlogic and standard rails practices
+ 
+1. User submits email address, activation email is sent out.
+2. User clicks link in activation email, which takes them to a form
+where they enter their first name, last name, and password. When
+submitting that, they're shown another form.
+3. This form asks for some extra details: birth date, location, and job history.  They 
+can add a new job up to 7.
+4. User is logged in and can return to edit their full profile anytime.
+
+
+== Requirements ==  
+
+1. authlogic gem
+2. mysql & mysql gem (create simple_test and simple_development databases) 
+
+Setup:
+1. sudo gem install authlogic
+2. install mysql; create database simple_test; create database simple_development
+3. set environment variables values for GMAIL_DOMAIN, GMAIL_USER, GMAIL_PASS 
+4. script/server -d 
+ 
+
+== NOTES ==
+I couldn't get gmail to block emails sent from my macbook so I had to resort to proxying through gmail.  
+Make sure your gmail settings are set before running the app.

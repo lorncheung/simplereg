@@ -1,0 +1,15 @@
+<div class="job">
+  <% fields_for_job(job) do |j| %>
+  <span>
+  <p>
+  <%= j.label :title, "Job Title" %>  <%= link_to_function "[x]", "$(this).up('.job').remove()" %>
+  <br />
+  <%= j.text_field :title %>
+  </p>
+  <p>
+  <%= j.label :company, "Company Name" %><br />
+  <%= j.text_field :company %><br />
+  </p>
+  <span>
+  <% end %>
+</div>

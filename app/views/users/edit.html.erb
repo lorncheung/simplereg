@@ -1,0 +1,4 @@
+<% title(@complete_state ? "Supplemental Info" : "Edit User Profile") %>
+
+<%= render :partial => 'form', :locals => {:display => { :primary => !@complete_state, :supplemental => true}} %>
+

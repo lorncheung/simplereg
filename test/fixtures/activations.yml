@@ -1,0 +1,7 @@
+one:
+  email: MyString@foo.com
+  activation_code: ACTIVATION_CODE
+
+two:
+  email: MyString@bar.com
+  activation_code: ACTIVATION_CODE

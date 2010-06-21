@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <head>
+    <title><%= h(yield(:title) || [controller.controller_name.titleize,controller.action_name.titleize].join(" - ") ) %></title>
+    <%= yield(:head) %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag "prototype" %>
+    <script type="text/javascript"> <%= yield :javascript %></script>
+      <!--[if lt IE 9]>
+      <script>
+      var e = ("abbr,article,aside,audio,canvas,datalist,details,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video").split(',');
+      for (var i = 0; i < e.length; i++) {
+        document.createElement(e[i]);
+      }
+      </script>
+      <![endif]-->     
+  </head>
+  <body>
+    <div id="container">
+      <div id="user_state">
+        <% if current_user %>
+        Welcome, <%= current_user.first_name %>
+        (<%= link_to("Logout", logout_url) %> | <%= link_to("Edit Profile", edit_user_url(current_user))%>)
+        <% else %>
+        <%= link_to("Login", login_url) %>
+        <% end %>
+      </div>
+      <div class="clear"></div>
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <%- end -%>
+      
+      <%- if show_title? -%>
+        <h1><%=h yield(:title) %></h1>
+      <%- end -%>
+      
+      <%= yield %>
+    </div>
+  </body>
+</html>

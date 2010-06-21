@@ -1,0 +1,51 @@
+<% display = initialize_boolean(:primary,:supplemental) unless defined? display %>
+
+<% form_for @user do |f| %>
+  <%= f.error_messages %>
+  <% if display[:primary] == true %>
+    <h2>Primary</h2>
+    <p>
+      <%= f.label :first_name, "First Name" %><br />
+      <%= f.text_field :first_name %>
+    </p>
+    <p>
+      <%= f.label :last_name, "Last Name" %><br />
+      <%= f.text_field :last_name %>
+    </p>
+    <p>
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label :password_confirmation, "Confirm Password" %><br />
+      <%= f.password_field :password_confirmation %>
+    </p>
+  <% end %>
+
+  <% if display[:supplemental] == true %>
+    <hr />
+    <h2>Supplemental</h2>
+    <p>
+      <%= f.label :email, "Email" %><br />
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :birthdate %><br />
+      <%= f.text_field :birthdate %>
+    </p>
+    <p>
+      <%= f.label :location %><br />
+      <%= f.text_field :location  %>
+    </p>
+    <hr />
+    <h2>Job History</h2>
+    <div id="jobs">
+      <%= render :partial => "job", :collection => @user.jobs %>
+    </div>
+    <%= add_job_link("Add a job") %>
+
+
+<% end %>
+
+<p><%= f.submit %></p>
+<% end %>

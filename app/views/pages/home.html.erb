@@ -1,0 +1,15 @@
+<h1>Home</h1>
+
+<% if not current_user %>
+  <%= link_to("Register!", register_url)%>
+<% end %>
+
+<h3>Web that rocks!</h3>
+<ul>
+  <li><%= link_to("Lifehacker", "http://www.lifehacker.com")%></li>
+  <li><%= link_to("Engadget", "http://www.engadget.com")%></li>
+  <li><%= link_to("AppleInsider", "http://www.appleinsider.com")%></li>
+  <li><%= link_to("The Unofficial Apple Weblog", "http://www.tuaw.com")%></li>
+  <li><%= link_to("Ars Technica", "http://www.arstechnica.com")%></li>
+  <li><%= link_to("Destructoid", "http://www.destructoid.com")%></li>
+</ul>  
